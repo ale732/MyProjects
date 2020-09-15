@@ -12,8 +12,8 @@
     <form-beans>
 
         <form-bean name="logonForm" type="auth.LogonForm"/>
-        <form-bean name="AuctionForm" type="auction.AuctionForm"/>
-
+        <form-bean name="auctionForm" type="auction.AuctionForm"/>
+        <form-bean name="auctionListForm" type="auction.AuctionListForm"/>
 
     </form-beans>
 
@@ -30,8 +30,16 @@
         <forward
             name="welcome"
             path="/Welcome.do"/>
-        <forward name="auction"
-            path="/Auction.do"/>
+        <forward
+            name="createAuction"
+            path="/CreateAuction.do"/>
+        <forward
+             name="listAuction"
+             path="/ListAuction.do"/>
+        <forward
+                name="listAuction"
+                path="/ListAuction.do"/>
+
     </global-forwards>
 
 
@@ -53,24 +61,29 @@
             scope="request"
             validate="true"
             input="/jsp/Logon.jsp">
-            <forward
-                name="success"
-                path="/jsp/Welcome.jsp"/>
+            <forward name="success" path="/jsp/Welcome.jsp"/>
         </action>
 
         <action path="/Logoff"
             type="auth.LogoffAction">
-            <forward
-                name="success"
-                path="/jsp/Welcome.jsp"/>
+            <forward name="success" path="/jsp/Welcome.jsp"/>
         </action>
 
-        <action path="/Auction"
-                type="auction.AuctionAction"
-                name="AuctionForm" scope="request">
+        <action path="/ListAuction"
+                type="auction.AuctionListAction"
+                name="auctionListForm">
             <forward name="ok" path="/jsp/auction/auctionList.jsp"/>
-    </action>
+        </action>
 
+        <action path="/CreateAuction"
+                type="org.apache.struts.actions.ForwardAction"
+                parameter="/jsp/auction/createAuction.jsp"/>
+
+        <action path="/SaveAuctionAction"
+                type="auction.SaveAuctionAction"
+                name="auctionForm">
+            <forward name="ok" path="/jsp/auction/auctionList.jsp"/>
+        </action>
 
     </action-mappings>
 
