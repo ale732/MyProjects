@@ -24,7 +24,7 @@ public class SaveAuctionAction extends Action {
     public ActionForward execute (ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, ParseException {
         List<Auction> auctions = new ArrayList<>();
 
-        AuctionForm auctionForm = (AuctionForm) form;
+        AuctionForm auctionForm = (AuctionForm) form;//ntcn
 
         Auction newAuction=new Auction();
         int auctionId=auctionForm.getAuctionId();
