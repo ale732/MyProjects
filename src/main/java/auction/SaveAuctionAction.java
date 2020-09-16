@@ -24,12 +24,12 @@ public class SaveAuctionAction extends Action {
     public ActionForward execute (ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, ParseException {
         List<Auction> auctions = new ArrayList<>();
 
-        AuctionForm auctionForm = (AuctionForm) form;//ntcn
+        AuctionForm auctionForm = (AuctionForm) form;
 
         Auction newAuction=new Auction();
-        int auctionId=auctionForm.getAuctionId();//dsdadsd
+        int auctionId=auctionForm.getAuctionId();//comm1
         newAuction.setAuctionId(auctionId);
-        auctions.add(newAuction);
+        auctions.add(newAuction);//
 
         FileOutputStream fileOutputStream=new FileOutputStream("/Users/u17401612/Documents/myProject/ru.mea/myStruts1.3/src/main/resources/auctions.properties", true);
 
