@@ -27,7 +27,7 @@ public class SaveAuctionAction extends Action {
         AuctionForm auctionForm = (AuctionForm) form;
 
         Auction newAuction=new Auction();
-        int auctionId=auctionForm.getAuctionId();//comm1
+        int auctionId=auctionForm.getAuctionId();//comm2
         newAuction.setAuctionId(auctionId);
         auctions.add(newAuction);//
 
